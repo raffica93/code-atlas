@@ -1,0 +1,45 @@
+{
+  "name": "@raffica93/code-atlas",
+  "version": "0.1.0",
+  "description": "Semantic code cartography for TypeScript/Angular and C#/.NET repositories",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "bin": {
+    "code-atlas": "dist/src/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test dist/tests/analyze.test.js",
+    "demo": "npm run build && node dist/src/cli.js analyze examples/demo-angular-dotnet --out artifacts/demo-atlas.json --html artifacts/demo-report.html",
+    "check": "npm test && npm run demo"
+  },
+  "keywords": [
+    "architecture",
+    "code-visualization",
+    "call-graph",
+    "typescript",
+    "csharp",
+    "angular",
+    "dotnet"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

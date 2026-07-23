@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">Code Atlas demo architecture flow</title>
+  <desc id="desc">Semantic navigation from capability through Angular, ASP.NET, application handler, repository and SQL Server.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1020"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity=".28"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#8b5cf6"/></marker>
+    <style>
+      .title{font:700 38px Inter,Arial,sans-serif;fill:#f8fafc}.sub{font:400 18px Inter,Arial,sans-serif;fill:#94a3b8}.label{font:700 13px Inter,Arial,sans-serif;letter-spacing:1px;fill:#a78bfa}.node-title{font:650 18px Inter,Arial,sans-serif;fill:#f8fafc}.node-sub{font:400 14px Inter,Arial,sans-serif;fill:#94a3b8}.node{fill:#151c2e;stroke:#334155;stroke-width:1.5}.active{stroke:#8b5cf6;stroke-width:2}.line{stroke:#8b5cf6;stroke-width:3;fill:none;marker-end:url(#arrow)}.chip{fill:#251b43;stroke:#6d4bc3}.chiptext{font:650 12px Inter,Arial,sans-serif;fill:#c4b5fd}.metric{font:700 22px Inter,Arial,sans-serif;fill:#f8fafc}.metric-sub{font:400 13px Inter,Arial,sans-serif;fill:#94a3b8}
+    </style>
+  </defs>
+  <rect width="1400" height="760" rx="24" fill="url(#bg)"/>
+  <text x="56" y="66" class="title">Code Atlas</text>
+  <text x="56" y="96" class="sub">Dalla capability di business al metodo che la implementa</text>
+  <g transform="translate(960 38)">
+    <rect width="112" height="64" rx="12" class="node"/><text x="16" y="29" class="metric">30</text><text x="16" y="49" class="metric-sub">nodi</text>
+    <rect x="124" width="112" height="64" rx="12" class="node"/><text x="140" y="29" class="metric">61</text><text x="140" y="49" class="metric-sub">relazioni</text>
+    <rect x="248" width="112" height="64" rx="12" class="node"/><text x="264" y="29" class="metric">1</text><text x="264" y="49" class="metric-sub">flow</text>
+  </g>
+  <text x="56" y="158" class="label">CAPABILITY MAP</text>
+  <g filter="url(#shadow)">
+    <rect x="56" y="180" width="255" height="112" rx="16" class="node active"/>
+    <rect x="76" y="200" width="96" height="26" rx="13" class="chip"/><text x="91" y="218" class="chiptext">CAPABILITY</text>
+    <text x="76" y="253" class="node-title">Ricerca posizioni</text><text x="76" y="276" class="node-sub">Filtri e risultati paginati</text>
+  </g>
+  <path d="M311 236 H363" class="line"/>
+  <text x="363" y="158" class="label">ANGULAR · PRESENTATION</text>
+  <g filter="url(#shadow)"><rect x="363" y="180" width="255" height="112" rx="16" class="node"/><text x="385" y="225" class="node-title">SearchPageComponent</text><text x="385" y="252" class="node-sub">onSearch()</text><text x="385" y="276" class="node-sub">Raccoglie i filtri</text></g>
+  <path d="M618 236 H670" class="line"/>
+  <text x="670" y="158" class="label">ANGULAR · DATA ACCESS</text>
+  <g filter="url(#shadow)"><rect x="670" y="180" width="255" height="112" rx="16" class="node"/><text x="692" y="225" class="node-title">PositionsApiClient</text><text x="692" y="252" class="node-sub">POST /api/positions/search</text><text x="692" y="276" class="node-sub">Bridge frontend/backend</text></g>
+  <path d="M925 236 H977" class="line"/>
+  <text x="977" y="158" class="label">ASP.NET · API</text>
+  <g filter="url(#shadow)"><rect x="977" y="180" width="255" height="112" rx="16" class="node"/><text x="999" y="225" class="node-title">PositionsController</text><text x="999" y="252" class="node-sub">Search()</text><text x="999" y="276" class="node-sub">Espone il contratto HTTP</text></g>
+  <path d="M1105 292 V355" class="line"/>
+  <text x="56" y="364" class="label">EXECUTION FLOW</text>
+  <g filter="url(#shadow)"><rect x="56" y="386" width="280" height="112" rx="16" class="node"/><text x="78" y="431" class="node-title">SearchFacade.search()</text><text x="78" y="458" class="node-sub">Stato, loading ed errori</text><text x="78" y="482" class="node-sub">TypeScript call graph</text></g>
+  <path d="M336 442 H390" class="line"/>
+  <g filter="url(#shadow)"><rect x="390" y="386" width="280" height="112" rx="16" class="node active"/><text x="412" y="431" class="node-title">SearchPositionsHandler</text><text x="412" y="458" class="node-sub">HandleAsync()</text><text x="412" y="482" class="node-sub">Caso d’uso applicativo</text></g>
+  <path d="M670 442 H724" class="line"/>
+  <g filter="url(#shadow)"><rect x="724" y="386" width="280" height="112" rx="16" class="node"/><text x="746" y="431" class="node-title">PositionsRepository</text><text x="746" y="458" class="node-sub">SearchAsync()</text><text x="746" y="482" class="node-sub">Infrastructure adapter</text></g>
+  <path d="M1004 442 H1058" class="line"/>
+  <g filter="url(#shadow)"><rect x="1058" y="386" width="280" height="112" rx="16" class="node"/><text x="1080" y="431" class="node-title">SQL Server</text><text x="1080" y="458" class="node-sub">External system</text><text x="1080" y="482" class="node-sub">Risultati paginati</text></g>
+  <text x="56" y="568" class="label">SEMANTIC BREADCRUMB</text>
+  <g transform="translate(56 592)">
+    <rect width="1280" height="98" rx="18" fill="#101827" stroke="#28364d"/>
+    <g transform="translate(22 21)"><rect width="178" height="56" rx="12" class="chip"/><text x="24" y="35" class="node-title">Capability</text></g>
+    <text x="215" y="57" class="metric">›</text>
+    <g transform="translate(248 21)"><rect width="178" height="56" rx="12" class="node"/><text x="24" y="35" class="node-title">Use case</text></g>
+    <text x="441" y="57" class="metric">›</text>
+    <g transform="translate(474 21)"><rect width="178" height="56" rx="12" class="node"/><text x="24" y="35" class="node-title">Flow</text></g>
+    <text x="667" y="57" class="metric">›</text>
+    <g transform="translate(700 21)"><rect width="178" height="56" rx="12" class="node"/><text x="24" y="35" class="node-title">Layer</text></g>
+    <text x="893" y="57" class="metric">›</text>
+    <g transform="translate(926 21)"><rect width="178" height="56" rx="12" class="node"/><text x="24" y="35" class="node-title">Symbol</text></g>
+    <text x="1119" y="57" class="metric">›</text>
+    <g transform="translate(1152 21)"><rect width="106" height="56" rx="12" class="node active"/><text x="18" y="35" class="node-title">Source</text></g>
+  </g>
+</svg>
